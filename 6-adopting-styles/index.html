@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example</title>
+    <link href="/base.css" rel="stylesheet" type="text/css" />
+
+    <script type="module">
+      import AdoptingStyles from './adopting-styles.js';
+
+      function adoptStyleSheets(list) {
+        const sheet = new CSSStyleSheet();
+        const contents = list.map(item => `@import url("${item}")`).join('\n');
+        return sheet.replace(contents);
+      }
+
+      const adoptedStyles = ['./adopted-sheet.css'];
+
+      adoptStyleSheets(adoptedStyles).then(sheet => {
+        document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet];
+        window.customElements.define('adopting-styles', AdoptingStyles);
+      });
+    </script>
+  </head>
+  <body>
+    <section class="container">
+      <p>I'm not in the shadow.</p>
+      <adopting-styles>
+        <p slot="start">I'm not in the shadow but in the start slot.</p>
+      </adopting-styles>
+      <p>I'm not in the shadow.</p>
+    </section>
+  </body>
+</html>

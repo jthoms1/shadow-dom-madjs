@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example</title>
+    <link href="/base.css" rel="stylesheet" type="text/css" />
+
+    <script type="module">
+      import CSSProperties from './css-properties.js';
+
+      window.customElements.define('css-properties', CSSProperties);
+    </script>
+
+    <style>
+      :root {
+        --example-font-family: 'Comic Sans MS', cursive, sans-serif;
+      }
+
+      p {
+        font-family: var(--example-font-family);
+        background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /**
+      css-properties {
+        --example-font-family: 'sans-serif';
+      }
+      **/
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <p>I'm not in the shadow.</p>
+      <css-properties>
+        <p slot="start">I'm not in the shadow but in the start slot.</p>
+      </css-properties>
+      <p>I'm not in the shadow.</p>
+    </section>
+  </body>
+</html>
