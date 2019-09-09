@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example</title>
+
+    <script type="module">
+      import PersonDetails from './person-details.js';
+
+      window.customElements.define('person-details', PersonDetails);
+    </script>
+
+    <style>
+      .container {
+        padding-top: 100px;
+        margin: 0 auto;
+        width: 300px;
+      }
+      p {
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <p>I'm not in the shadow.</p>
+      <person-details></person-details>
+      <p>I'm not in the shadow.</p>
+    </section>
+  </body>
+</html>
