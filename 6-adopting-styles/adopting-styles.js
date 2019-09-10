@@ -36,10 +36,5 @@ export default class AdoptingStyles extends HTMLElement {
   constructor() {
     super();
     const template = createTemplate();
-    this._shadowRoot = this.attachShadow({ mode: 'open' });
-
-    const styleSheets = getStyleSheets(['./adopted-sheet.css']);
-    this._shadowRoot.appendChild(template.content.cloneNode(true));
-    this._shadowRoot.adoptedStyleSheets = [...styleSheets];
   }
 }

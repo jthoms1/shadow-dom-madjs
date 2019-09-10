@@ -20,7 +20,7 @@ function createTemplate() {
   </style>
 
   <div class="start-block">
-    <slot name="start"><p>Start Slot</p></slot>
+    <slot name="start"></slot>
   </div>
   <p>
     I'm in the shadow
